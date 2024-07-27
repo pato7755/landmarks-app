@@ -21,8 +21,13 @@ struct LandmarkRow: View {
     }
 }
 
-struct LandmarkRow_Previews: PreviewProvider {
+struct LandmarkRow_Previews1: PreviewProvider {
     static var previews: some View {
-        LandmarkRow(landmark: landmarks[0])
+        Group {
+            LandmarkRow(landmark: landmarks[0])
+            LandmarkRow(landmark: landmarks[1])
+            LandmarkRow(landmark: landmarks[2])
+            LandmarkRow(landmark: landmarks[3])
+        }
     }
 }
