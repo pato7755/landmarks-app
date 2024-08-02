@@ -10,8 +10,17 @@ import SwiftUI
 struct LandmarkList: View {
     @State private var multiSelection = Set<UUID>()
     var body: some View {
-        List(landmarks, selection: $multiSelection) { landmark in
-            LandmarkRow(landmark: landmark)
+        NavigationSplitView {
+            List(landmarks) { landmark in
+                NavigationLink {
+                    LandmarkDetail(landmark: landmark)
+                } label: {
+                    LandmarkRow(landmark: landmark)
+                }
+            }
+            .navigationTitle("Landmarks")
+        } detail: {
+            Text("Select a Landmark")
         }
     }
 }
